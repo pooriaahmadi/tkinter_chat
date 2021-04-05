@@ -3,26 +3,8 @@ import tkinter.font as tkFont
 import socket
 import pickle
 from threading import Thread
-
-SERVER_HOST = '87.107.172.12'
-SERVER_PORT = 15013
-HEADER_SIZE = 10
-
-def decode(data, format='utf-8'):
-    return data.decode(format)
-
-def encode(data, format='utf-8'):
-    return data.encode(format)
-
-def create_header(data, decode=False):
-    data = f"{len(data):<{HEADER_SIZE}}"
-    if decode:
-        data = decode(data)
-    return data
-
-def get_length(message_header):
-    return int(message_header)
-
+from config import *
+from tools import *
 class App:
     def __init__(self, root):
         #setting title
